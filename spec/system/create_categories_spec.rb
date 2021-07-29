@@ -20,4 +20,15 @@ RSpec.describe "CreateCategories", type: :system do
       expect(category.title).to eq('Hello, World!')
       expect(category.body).to eq('Hello, I say!')
   end
+
+  it 'edits and update the category' do
+    category = Category.order("id").last
+    visit '/categories/#{category.id}/edit'
+    fill_in 'Title', with: 'Hello, World edited!'
+    fill_in 'Body', with: 'Hello, I say edited!'
+    click_on 'UPDATE'
+
+    expect(category.title).to eq('Hello, World edited!')
+    expect(category.body).to eq('Hello, I say edited!')
+
 end

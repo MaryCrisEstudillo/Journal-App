@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: postgres
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: JournalApp_dev
+  
+test:
+  <<: *default
+  database: JournalApp_test
+
+production:
+  <<: *default
+  database: JournalApp_prod
+

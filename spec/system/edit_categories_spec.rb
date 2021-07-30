@@ -19,7 +19,8 @@ RSpec.describe "EditCategories", type: :system do
 
     expect(page).to have_content('Hello, World edited!')
     expect(page).to have_content('Hello, I say edited!')
-
+     
+    category = Category.order("id").last
     expect(category.title).to eq('Hello, World edited!')
     expect(category.body).to eq('Hello, I say edited!')
   end

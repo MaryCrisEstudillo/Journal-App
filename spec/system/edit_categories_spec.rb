@@ -5,23 +5,23 @@ RSpec.describe "EditCategories", type: :system do
     driven_by(:rack_test)
   end
 
-  it 'category to update the category details' do
+  it 'edit to update the category details' do
     visit '/categories/new'
-    fill_in 'Title', with: 'Hello, World!'
-    fill_in 'Body', with: 'Hello, I say!'
+    fill_in 'Title', with: 'category title'
+    fill_in 'Body', with: 'category body'
     click_on 'ADD'
     
     category = Category.order("id").last
     visit "/categories/#{category.id}/edit"
-    fill_in 'Title', with: 'Hello, World edited!'
-    fill_in 'Body', with: 'Hello, I say edited!'
+    fill_in 'Title', with: 'category title edited'
+    fill_in 'Body', with: 'category body edited'
     click_on 'UPDATE'
 
-    expect(page).to have_content('Hello, World edited!')
-    expect(page).to have_content('Hello, I say edited!')
+    expect(page).to have_content('category title edited')
+    expect(page).to have_content('category body edited')
      
     category = Category.order("id").last
-    expect(category.title).to eq('Hello, World edited!')
-    expect(category.body).to eq('Hello, I say edited!')
+    expect(category.title).to eq('category title edited')
+    expect(category.body).to eq('category body edited')
   end
 end

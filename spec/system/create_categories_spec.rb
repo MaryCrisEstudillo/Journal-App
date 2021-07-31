@@ -5,18 +5,18 @@ RSpec.describe "CreateCategories", type: :system do
     driven_by(:rack_test)
   end
 
-  it 'category that can be used to organize my tasks' do
+  it 'create and show category' do
     visit '/categories/new'
-    fill_in 'Title', with: 'Hello, World!'
-    fill_in 'Body', with: 'Hello, I say!'
+    fill_in 'Title', with: 'category title'
+    fill_in 'Body', with: 'category body'
     
     click_on 'ADD'
-    expect(page).to have_content('Hello, World!')
-    expect(page).to have_content('Hello, I say!')
+    expect(page).to have_content('category title')
+    expect(page).to have_content('category body')
     
     category = Category.order("id").last
-    expect(category.title).to eq('Hello, World!')
-    expect(category.body).to eq('Hello, I say!')
+    expect(category.title).to eq('category title')
+    expect(category.body).to eq('category body')
   end
 
 end

@@ -8,16 +8,16 @@ RSpec.describe "ViewCategories", type: :system do
   it 'view a category to show the categorys details' do
 
     visit '/categories/new'
-    fill_in 'Title', with: 'Hello, World!'
-    fill_in 'Body', with: 'Hello, I say!'
+    fill_in 'Title', with: 'category title'
+    fill_in 'Body', with: 'category body'
     click_on 'ADD'
     
     category = Category.order("id").last
     visit "/categories/#{category.id}"
-    expect(page).to have_content('Hello, I say!')
+    expect(page).to have_content('category body')
     
     category = Category.order("id").last
-    expect(category.body).to eq('Hello, I say!')
+    expect(category.body).to eq('category body')
 
   end
 end

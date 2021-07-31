@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<p style="margin:5vw 0vw 0vw 45vw;" >
   <strong>Title:</strong>
   <%= @category.title %>
 </p>
 
-<p>
+<p style="margin:2vw 0vw 0vw 45vw;">
   <strong>Body:</strong>
   <%= @category.body %>
 </p>
 
-<%= link_to 'Back', categories_path %>
+<div style="margin:2vw 0vw 0vw 45vw;"><%= link_to 'Back', categories_path %>
 <%= link_to 'Edit', edit_category_path %>
+</div>

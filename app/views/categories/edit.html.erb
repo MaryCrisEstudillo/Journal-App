@@ -1,11 +1,12 @@
+<h1 style="background-color:rgb(2, 102, 184); height:4vw; padding:.7vw 0vw 1vw 0vw; color:white; text-align:center;">EDIT ENTRY</h1>
 <%= form_with model: @category do |f| %>
-    <div>
+    <div style= "width:12vw; height:3vw; margin: 5vw 0vw 0vw 43vw">
       <%= f.label :title %>
       <%= f.text_field :title %>
     </div>
-    <div>
+    <div style= "width:12vw; height:3vw; margin: 0vw 0vw 0vw 43vw">
       <%= f.label :body %>
       <%= f.text_area :body %>
     </div>
-      <%= f.submit 'UPDATE' %>
+    <div style= "margin: 0vw 0vw 0vw 50vw"><%= f.submit 'ADD' %></div>
 <% end %>

@@ -5,12 +5,12 @@ RSpec.describe "EditCategories", type: :system do
     driven_by(:rack_test)
   end
 
-  it 'edits and update the category' do
+  it 'category to update the category details' do
     visit '/categories/new'
     fill_in 'Title', with: 'Hello, World!'
     fill_in 'Body', with: 'Hello, I say!'
-  
     click_on 'ADD'
+    
     category = Category.order("id").last
     visit "/categories/#{category.id}/edit"
     fill_in 'Title', with: 'Hello, World edited!'

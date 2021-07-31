@@ -5,7 +5,7 @@ RSpec.describe "CreateCategories", type: :system do
     driven_by(:rack_test)
   end
 
-  it 'saves and displays the resulting Category' do
+  it 'category that can be used to organize my tasks' do
     visit '/categories/new'
     fill_in 'Title', with: 'Hello, World!'
     fill_in 'Body', with: 'Hello, I say!'
